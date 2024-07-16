@@ -9,6 +9,7 @@ import (
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", indexHandler)
+	mux.HandleFunc("/image.png", imageHandler)
 
 	fmt.Println("Server is running on http://localhost:8080")
 	http.ListenAndServe(":8080", mux)
@@ -26,4 +27,8 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+}
+
+func imageHandler(w http.ResponseWriter, r *http.Request) {
+	http.ServeFile(w, r, "image.png")
 }
