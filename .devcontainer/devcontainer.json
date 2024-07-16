@@ -1,0 +1,12 @@
+{
+    "name": "Go",
+    "image": "mcr.microsoft.com/vscode/devcontainers/go:latest",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "GitHub.copilot",
+          "golang.Go"
+        ]
+      }
+    }
+  }
