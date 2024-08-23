@@ -33,6 +33,10 @@ form {
     margin-bottom: var(--lh);
 }
 
+input[type="submit"] {
+    cursor: pointer;
+}
+
 h1 {
     font-size: 2rem;
     margin-bottom: var(--lh);
