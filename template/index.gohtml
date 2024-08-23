@@ -6,30 +6,48 @@
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
+    <form action="/language" method="POST">
+        <button type="submit" name="lang" value="{{if eq . "en"}}de{{end}}{{if eq . "de"}}en{{end}}">
+            {{if eq . "en"}}DE{{end}}
+            {{if eq . "de"}}EN{{end}}
+        </button>
+    </form>
+
     <h1>Konstantin Koetzner</h1>
-    <p>I am based in Munich.</p>
-    <br>
-    <br>
-    <h2>A quote to have in front of you when you are a software developer</h2>
+    {{if eq . "en"}}<p>I live in Munich.</p>{{end}}
+    {{if eq . "de"}}<p>Ich wohne in München.</p>{{end}}
 
-    <p>by Konstantin Koetzner<br><br></p>
+    {{if eq . "en"}}
+    <article>
+        <h2>A quote to have in front of you when you are a software developer</h2>
+        <address>by Konstantin Koetzner</address>
+        <p>"If most computer people lack understanding and knowledge, then what they will select will also be lacking." - Alan Kay</p>
+        <p><a href="https://www.ardanlabs.com/instructors/bill-kennedy">Bill Kennedy</a> says in the course <a href="https://www.oreilly.com/library/view/ultimate-go-advanced/9780135339503">Ultimate Go</a>:</p>
+        <p>"I want every developer to have that quote in front of them day in and day out."</p>
+        <p>He goes on:</p>
+        <p>"Because you're making engineering decisions and it's easy to fall back into the decisions that you're comfortable with. But then you're losing sight about the progress that we have. Maybe there's better techniques and maybe there's better tech. Maybe there's something better out there. We don't take the time to look at it. This is what Alan Kay is saying."</p>
+        <p>"There are really, maybe, better ways to be writing that code in Go — Ideas around readability and simplicity."</p>
+        <p>For example: Write down the quote on paper and laminate it. Have it with you everywhere you are a software developer.</p>
+        <img src="img/bill-kennedy-alan-kay-quote-for-developer.jpg" alt="Photo of the course on video on a tablet and a laminated piece of paper with the quote on it.">
+        <p>"I want you to really kind of take in what Alan is saying there."</p>
+    </article>
+    {{end}}
 
-    <p>"If most computer people lack understanding and knowledge, then what they will select will also be lacking." - Alan Kay</p>
+    {{if eq . "de"}}
+    <article>
+        <h2>Ein Zitat um es vor dir zu haben wenn du ein Softwareentwickler bist</h2>
+        <address>von Konstantin Koetzner</address>
+        <p>"Falls es den meisten Computer Leuten an Verständnis und Wissen mangelt, dann wird was sie auswählen werden auch mangelhaft sein." - Alan Kay</p>
+        <p><a href="https://www.ardanlabs.com/instructors/bill-kennedy">Bill Kennedy</a> sagt in dem Kurs <a href="https://www.oreilly.com/library/view/ultimate-go-advanced/9780135339503">Ultimate Go</a>:</p>
+        <p>"Ich will, dass jeder Entwickler dieses Zitat Tag für Tag vor sich hat."</p>
+        <p>Er führt fort:</p>
+        <p>"Weil du Ingenieurentscheidungen triffst und es leicht ist auf die Entscheidungen zurückzufallen mit denen du vertraut bist. Aber dann verlierst du den Fortschritt aus den Augen den wir haben. Vielleicht gibt es bessere Techniken und vielleicht gibt es bessere Technologien. Vielleicht gibt es etwas Besseres da draußen. Wir nehmen uns nicht die Zeit es zu betrachten. Das ist was Alan Kay sagt."</p>
+        <p>"Es gibt wirklich, vielleicht, bessere Möglichkeiten diesen Code in Go zu schreiben – Ideen rund um Lesbarkeit und Einfachheit."</p>
+        <p>Zum Beispiel: Schreibe das Zitat auf ein Blatt Papier und laminiere es. Habe es bei dir wo immer du ein Softwareentwickler bist.</p>
+        <img src="img/bill-kennedy-alan-kay-quote-for-developer.jpg" alt="Foto des Kurses auf Video auf einem Tablet und ein laminiertes Papier mit dem Zitat darauf.">
+        <p>"Ich möchte, dass du wirklich verinnerlichst was Alan dort sagt."</p>
+    </article>
+    {{end}}
 
-    <p><a href="https://www.ardanlabs.com/instructors/bill-kennedy">Bill Kennedy</a> says in the course <a href="https://www.oreilly.com/library/view/ultimate-go-advanced/9780135339503">Ultimate Go</a>:</p>
-
-    <p>"I want every developer to have that quote in front of them day in and day out."</p>
-
-    <p>He goes on:</p>
-    
-    <p>"Because you're making engineering decisions and it's easy to fall back into the decisions that you're comfortable with. But then you're losing sight about the progress that we have. Maybe there's better techniques and maybe there's better tech. Maybe there's something better out there. We don't take the time to look at it. This is what Alan Kay is saying."</p>
-
-    <p>"There are really, maybe, better ways to be writing that code in Go - Ideas around readability and simplicity."</p>
-
-    <p>For example: Write down the quote on paper and laminate it. Have it with you everywhere you are a software developer.</p>
-
-    <img src="img/bill-kennedy-alan-kay-quote-for-developer.jpg" alt="Photo of the course on video on a tablet and a laminated piece of paper with the quote on it.">
-
-    <p>"I want you to really kind of take in what Alan is saying there."</p>
 </body>
 </html>
