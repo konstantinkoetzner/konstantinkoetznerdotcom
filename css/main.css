@@ -36,6 +36,7 @@ input[type="submit"] {
 }
 
 header {
+    margin-bottom: calc(3*var(--lh));
     margin-left: 13px; /* half of default line height 16px * 1.625 / 2 */
 }
 
@@ -46,7 +47,6 @@ h1 {
 
 article {
     max-width: 40rem;
-    margin-top: calc(5*var(--lh));
     margin-left: auto;
     margin-right: auto;
     padding-left: 13px; /* half of default line height 16px * 1.625 / 2 */
@@ -59,7 +59,7 @@ h2 {
 }
 
 address {
-    margin-bottom: calc(3*var(--lh));
+    margin-bottom: calc(2*var(--lh));
     display:block;
 }
 

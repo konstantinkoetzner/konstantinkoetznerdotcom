@@ -13,8 +13,14 @@
 
     <header>
         <h1>Konstantin Koetzner</h1>
-        {{if eq . "en"}}<p>I live in Munich.</p>{{end}}
-        {{if eq . "de"}}<p>Ich wohne in München.</p>{{end}}
+        {{if eq . "en"}}
+        <p>I live in Munich.</p>
+        <p>On this page I present this article:</p>
+        {{end}}
+        {{if eq . "de"}}
+        <p>Ich wohne in München.</p>
+        <p>Auf dieser Seite präsentiere ich diesen Artikel:</p>
+        {{end}}
     </header>
 
     {{if eq . "en"}}
