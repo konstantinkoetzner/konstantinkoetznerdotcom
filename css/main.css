@@ -20,8 +20,8 @@ body {
     margin-right: auto;
     margin-top: calc(3*var(--lh));
     margin-bottom: 5rem;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 13px; /* half of default line height 16px * 1.625 / 2 */
+    padding-right: 13px; /* half of default line height 16px * 1.625 / 2 */
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     color: rgb(13, 13, 13);
