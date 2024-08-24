@@ -15,13 +15,7 @@
 }
 
 body {
-    max-width: 40rem;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: calc(3*var(--lh));
     margin-bottom: 5rem;
-    padding-left: 13px; /* half of default line height 16px * 1.625 / 2 */
-    padding-right: 13px; /* half of default line height 16px * 1.625 / 2 */
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     color: rgb(13, 13, 13);
@@ -29,12 +23,20 @@ body {
 }
 
 form {
+    display: flex;
+    justify-content: right;
     text-align: right;
     margin-bottom: var(--lh);
 }
 
 input[type="submit"] {
+    margin-top: var(--lh);
+    margin-right: var(--lh);
     cursor: pointer;
+}
+
+header {
+    margin-left: 13px; /* half of default line height 16px * 1.625 / 2 */
 }
 
 h1 {
@@ -43,7 +45,12 @@ h1 {
 }
 
 article {
+    max-width: 40rem;
     margin-top: calc(5*var(--lh));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 13px; /* half of default line height 16px * 1.625 / 2 */
+    padding-right: 13px; /* half of default line height 16px * 1.625 / 2 */
 }
 
 h2 {

@@ -11,9 +11,11 @@
         <input type="submit" value="{{if eq . "en"}}DE{{end}}{{if eq . "de"}}EN{{end}}">
     </form>
 
-    <h1>Konstantin Koetzner</h1>
-    {{if eq . "en"}}<p>I live in Munich.</p>{{end}}
-    {{if eq . "de"}}<p>Ich wohne in München.</p>{{end}}
+    <header>
+        <h1>Konstantin Koetzner</h1>
+        {{if eq . "en"}}<p>I live in Munich.</p>{{end}}
+        {{if eq . "de"}}<p>Ich wohne in München.</p>{{end}}
+    </header>
 
     {{if eq . "en"}}
     <article>
