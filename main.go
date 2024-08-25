@@ -1,8 +1,6 @@
 package main
 
 import (
-	"errors"
-	"fmt"
 	"html/template"
 	"net/http"
 	"path/filepath"
@@ -15,8 +13,6 @@ func main() {
 	mux.HandleFunc("/language", languageHandler)
 	mux.HandleFunc("/css/", cssHandler)
 	mux.HandleFunc("/img/", imgHandler)
-
-	fmt.Println("Server is running on http://localhost:8080")
 	http.ListenAndServe(":8080", mux)
 }
 
@@ -26,23 +22,7 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
-
-	lang := "en"
-
-	lc, err := r.Cookie("language")
-
-	if err != nil && !errors.Is(err, http.ErrNoCookie) {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
-	}
-
-	if lc != nil {
-		lang = lc.Value
-	}
-
-	fmt.Println(lc)
-	fmt.Println(lang)
-
+	lang := determineLanguage(r)
 	err = t.Execute(w, lang)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
@@ -50,19 +30,27 @@ func indexHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
+func determineLanguage(r *http.Request) string {
+	c, err := r.Cookie("language")
+	if err != nil {
+		return "en"
+	}
+	if c.Value == "de" {
+		return "de"
+	}
+	return "en"
+}
+
 func languageHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
-		http.Error(w, "Method not allowed", http.StatusMethodNotAllowed)
+		http.Redirect(w, r, "/", http.StatusSeeOther)
 		return
 	}
-
 	lang := r.FormValue("lang")
-
 	if lang != "en" && lang != "de" {
 		http.Error(w, "Invalid language", http.StatusBadRequest)
 		return
 	}
-
 	http.SetCookie(w, &http.Cookie{
 		Name:     "language",
 		Value:    lang,
@@ -72,7 +60,6 @@ func languageHandler(w http.ResponseWriter, r *http.Request) {
 		Secure:   false,
 		SameSite: http.SameSiteLaxMode,
 	})
-
 	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
