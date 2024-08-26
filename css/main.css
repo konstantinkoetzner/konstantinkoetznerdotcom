@@ -1,3 +1,11 @@
+/* Methodology:
+Block-element
+like BEM
+one level of element nesting only
+block and element are separated by a hyphen
+both are written in camel case
+block starts with a capital letter */
+
 :root {
     --lh: 1.625rem;
 }
@@ -7,45 +15,49 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-style: normal;
+    font: inherit;
     font-size: 1rem;
-    line-height: var(--lh);
     color: inherit;
-    background-color: inherit;
+    background-color: transparent;
 }
 
-body {
-    margin-bottom: 5rem;
+.Body {
+    line-height: var(--lh);
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     color: rgb(13, 13, 13);
     background-color: rgb(255, 255, 255);
 }
 
-form {
+.LanguageSelection {
     display: flex;
     justify-content: right;
     text-align: right;
     margin-bottom: var(--lh);
 }
 
-input[type="submit"] {
+.LanguageSelection-button {
     margin-top: var(--lh);
     margin-right: var(--lh);
     cursor: pointer;
 }
 
-header {
+.Header {
     margin-bottom: calc(3*var(--lh));
     margin-left: 13px; /* half of default line height 16px * 1.625 / 2 */
 }
 
-h1 {
+.Header-title {
     font-size: 2rem;
+    margin-bottom: calc(2*var(--lh));
+}
+
+.Header-paragraph {
+    line-height: var(--lh);
     margin-bottom: var(--lh);
 }
 
-article {
+.Article {
     max-width: 40rem;
     margin-left: auto;
     margin-right: auto;
@@ -53,48 +65,51 @@ article {
     padding-right: 13px; /* half of default line height 16px * 1.625 / 2 */
 }
 
-h2 {
+.Article-title {
     font-size: 1.5rem;
     margin-bottom: var(--lh);
 }
 
-address {
+.Article-author {
     margin-bottom: calc(2*var(--lh));
-    display:block;
 }
 
-p {
+.Article-paragraph {
     line-height: var(--lh);
     margin-bottom: var(--lh);
 }
 
-a {
+.Article-anchor {
     color: rgb(41, 100, 170);
     text-decoration: none;
 }
 
-a:hover {
-    color: rgb(116, 154, 200);    ;
+.Article-anchor:hover {
+    color: rgb(116, 154, 200);
 }
 
-img {
+.Article-image {
     max-width: 100%;
     margin-top: var(--lh);
     margin-bottom: calc(2*var(--lh));
 }
 
+.Footer {
+    height: 5rem;
+}
+
 @media (prefers-color-scheme: dark) {
-    body {
+    .Body {
         color: rgb(236, 236, 236);
         background-color: rgb(33, 33, 33);
     }
 
-    a {
+    .Article-anchor {
         color: rgb(122, 183, 255);
         text-decoration: none;
     }
 
-    a:hover {
+    .Article-anchor:hover {
         color: rgb(94, 131, 179);
     }
 }
