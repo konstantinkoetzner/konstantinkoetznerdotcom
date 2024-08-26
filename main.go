@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 	"path/filepath"
@@ -13,17 +14,68 @@ func main() {
 	mux.HandleFunc("/language", languageHandler)
 	mux.HandleFunc("/css/", cssHandler)
 	mux.HandleFunc("/img/", imgHandler)
+	mux.HandleFunc("/person", personHandler)
+	mux.HandleFunc("/publication", publicationHandler)
+	mux.HandleFunc("/contact", contactHandler)
+	mux.HandleFunc("/veroeffentlichung", veroeffentlichungHandler)
+	mux.HandleFunc("/kontakt", kontaktHandler)
 	http.ListenAndServe(":8080", mux)
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
-	t, err := template.ParseFiles("template/index.gohtml")
+	t := template.Must(template.ParseGlob("template/*"))
+	lang := determineLanguage(r)
+	err := t.ExecuteTemplate(w, "index.gohtml", lang)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+}
+
+func personHandler(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("template/*"))
 	lang := determineLanguage(r)
-	err = t.Execute(w, lang)
+	err := t.ExecuteTemplate(w, "person.gohtml", lang)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func publicationHandler(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("template/*"))
+	lang := determineLanguage(r)
+	err := t.ExecuteTemplate(w, "publication.gohtml", lang)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func contactHandler(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("template/*"))
+	lang := determineLanguage(r)
+	err := t.ExecuteTemplate(w, "contact.gohtml", lang)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func veroeffentlichungHandler(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("template/*"))
+	lang := determineLanguage(r)
+	err := t.ExecuteTemplate(w, "veroeffentlichung.gohtml", lang)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+		return
+	}
+}
+
+func kontaktHandler(w http.ResponseWriter, r *http.Request) {
+	t := template.Must(template.ParseGlob("template/*"))
+	lang := determineLanguage(r)
+	err := t.ExecuteTemplate(w, "kontakt.gohtml", lang)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
@@ -42,15 +94,47 @@ func determineLanguage(r *http.Request) string {
 }
 
 func languageHandler(w http.ResponseWriter, r *http.Request) {
+	ref := r.Header.Get("Referer")
 	if r.Method != http.MethodPost {
-		http.Redirect(w, r, "/", http.StatusSeeOther)
+		if ref == "" {
+			http.Redirect(w, r, "/", http.StatusSeeOther)
+			return
+		}
+		http.Redirect(w, r, ref, http.StatusSeeOther)
 		return
+	}
+	uu := []string{
+		"publication", "veroeffentlichung",
+		"contact", "kontakt",
 	}
 	lang := r.FormValue("lang")
 	if lang != "en" && lang != "de" {
 		http.Error(w, "Invalid language", http.StatusBadRequest)
 		return
 	}
+	for i, u := range uu {
+		if u == filepath.Base(ref) {
+			if i%2 == 0 {
+				setLanguageCookie(w, lang)
+				http.Redirect(w, r, fmt.Sprintf("/%s", uu[i+1]), http.StatusSeeOther)
+				return
+			}
+			if i%2 == 1 {
+				setLanguageCookie(w, lang)
+				http.Redirect(w, r, fmt.Sprintf("/%s", uu[i-1]), http.StatusSeeOther)
+				return
+			}
+		}
+	}
+	setLanguageCookie(w, lang)
+	if ref == "" {
+		http.Redirect(w, r, "/", http.StatusSeeOther)
+		return
+	}
+	http.Redirect(w, r, ref, http.StatusSeeOther)
+}
+
+func setLanguageCookie(w http.ResponseWriter, lang string) {
 	http.SetCookie(w, &http.Cookie{
 		Name:     "language",
 		Value:    lang,
@@ -60,7 +144,6 @@ func languageHandler(w http.ResponseWriter, r *http.Request) {
 		Secure:   false,
 		SameSite: http.SameSiteLaxMode,
 	})
-	http.Redirect(w, r, "/", http.StatusSeeOther)
 }
 
 func cssHandler(w http.ResponseWriter, r *http.Request) {

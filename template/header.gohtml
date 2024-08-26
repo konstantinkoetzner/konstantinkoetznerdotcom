@@ -1,0 +1,24 @@
+{{define "Header"}}
+<header class="Header">
+    <h1 class="Header-title"><a class="Header-titleAnchor" href="/">Konstantin Koetzner</a></h1>
+    {{if eq . "en"}}
+    <nav class="Header-menu">
+        <li class="Header-menuItem"><a class="Header-menuItemAnchor" href="person">Person</a></li>
+        <li class="Header-menuItem"><a class="Header-menuItemAnchor" href="publication">Publication</a></li>
+        <li class="Header-menuItem"><a class="Header-menuItemAnchor" href="contact">Contact</a></li>
+    </nav>
+    {{end}}
+    {{if eq . "de"}}
+    <nav class="Header-menu">
+        <li class="Header-menuItem"><a class="Header-menuItemAnchor" href="person">Person</a></li>
+        <li class="Header-menuItem"><a class="Header-menuItemAnchor" href="veroeffentlichung">Veröffentlichung</a></li>
+        <li class="Header-menuItem"><a class="Header-menuItemAnchor" href="kontakt">Kontakt</a></li>
+    </nav>
+    {{end}}
+    </nav>
+    <form action="/language" method="POST">
+        <input type="hidden" name="lang" value="{{if eq . "en"}}de{{end}}{{if eq . "de"}}en{{end}}">
+        <input class="Header-languageSelectionButton" type="submit" value="{{if eq . "en"}}DE{{end}}{{if eq . "de"}}EN{{end}}">
+    </form>
+</header>
+{{end}}

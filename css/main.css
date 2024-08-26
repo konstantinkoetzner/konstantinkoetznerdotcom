@@ -8,6 +8,29 @@ block starts with a capital letter */
 
 :root {
     --lh: 1.625rem;
+
+    --white: #fff;
+    --gray-5: #f9f9f9;
+    --gray-10: #ececec;
+    --gray-20: #e3e3e3;
+    --gray-30: #cdcdcd;
+    --gray-40: #b4b4b4;
+    --gray-50: #9b9b9b;
+    --gray-60: #676767;
+    --gray-70: #424242;
+    --gray-75: #2f2f2f;
+    --gray-80: #212121;
+    --gray-90: #171717;
+    --gray-95: #0d0d0d;
+    --black: #000;
+
+    --text-primary: #0d0d0d;
+    --text-secondary: #7d7d7d;
+    --text-tertiary: #b4b4b4;
+    --text-quaternary: #cdcdcd;
+
+    --link: #2964aa;
+    --link-hover: #749ac8;
 }
 
 * {
@@ -19,55 +42,88 @@ block starts with a capital letter */
     font-size: 1rem;
     color: inherit;
     background-color: transparent;
+    text-decoration: none;
+    list-style: none;
 }
 
 .Body {
     line-height: var(--lh);
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
-    color: rgb(13, 13, 13);
-    background-color: rgb(255, 255, 255);
-}
-
-.LanguageSelection {
-    display: flex;
-    justify-content: right;
-    text-align: right;
-    margin-bottom: var(--lh);
-}
-
-.LanguageSelection-button {
-    margin-top: var(--lh);
-    margin-right: var(--lh);
-    cursor: pointer;
+    color: var(--text-primary);
+    background-color: var(--white);
 }
 
 .Header {
-    margin-bottom: calc(3*var(--lh));
-    margin-left: 13px; /* half of default line height 16px * 1.625 / 2 */
+    height: calc(2*var(--lh));
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: calc(1.5*var(--lh));
+    background-color: var(--white);
+    border-bottom: var(--gray-20) solid 1px;
+
 }
 
 .Header-title {
-    font-size: 2rem;
-    margin-bottom: calc(2*var(--lh));
+    padding-left: 26px; /* default line height */
+    padding-right: 26px; /* default line height */
+    border-right: var(--gray-20) solid 1px;
+    line-height: calc(2*var(--lh));
+    color: var(--text-secondary);
+    font-weight: 400;
+    white-space: nowrap;
 }
 
-.Header-paragraph {
+.Header-titleAnchor:hover {
+    color: var(--text-tertiary);
+}   
+
+.Header-menu {
+    width: 100%;
+    display: flex;
+}
+
+.Header-menuItemAnchor {
+    margin-left: 26px; /* default line height */
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.Header-menuItemAnchor:hover {
+    color: var(--text-tertiary);
+}
+
+
+.Header-languageSelectionButton {
+    padding-left: 26px; /* default line height */
+    padding-right: 26px; /* default line height */
+    border-left: var(--gray-20) solid 1px;
+    line-height: calc(2*var(--lh));
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.Intro-paragraph {
     line-height: var(--lh);
-    margin-bottom: var(--lh);
+    margin-bottom: 13px;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
 }
 
 .Article {
     max-width: 40rem;
+    margin-top: calc(3*var(--lh));
     margin-left: auto;
     margin-right: auto;
-    padding-left: 13px; /* half of default line height 16px * 1.625 / 2 */
-    padding-right: 13px; /* half of default line height 16px * 1.625 / 2 */
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
 }
 
 .Article-title {
-    font-size: 1.5rem;
     margin-bottom: var(--lh);
+    font-size: 1.125rem;
+    font-weight: 600;
 }
 
 .Article-author {
@@ -80,12 +136,11 @@ block starts with a capital letter */
 }
 
 .Article-anchor {
-    color: rgb(41, 100, 170);
-    text-decoration: none;
+    color: var(--link);
 }
 
 .Article-anchor:hover {
-    color: rgb(116, 154, 200);
+    color: var(--link-hover);
 }
 
 .Article-image {
@@ -94,8 +149,8 @@ block starts with a capital letter */
     margin-bottom: calc(2*var(--lh));
 }
 
-.Footer {
-    height: 5rem;
+.Article-end{
+    height: calc(4*var(--lh));
 }
 
 @media (prefers-color-scheme: dark) {
