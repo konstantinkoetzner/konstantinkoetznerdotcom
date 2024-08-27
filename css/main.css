@@ -6,6 +6,8 @@ block and element are separated by a hyphen
 both are written in camel case
 block starts with a capital letter */
 
+
+
 :root {
     --lh: 1.625rem;
 
@@ -33,8 +35,9 @@ block starts with a capital letter */
     --link-hover: #749ac8;
 }
 
+
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
     border: 0;
@@ -46,6 +49,8 @@ block starts with a capital letter */
     list-style: none;
 }
 
+
+
 .Body {
     line-height: var(--lh);
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
@@ -53,6 +58,8 @@ block starts with a capital letter */
     color: var(--text-primary);
     background-color: var(--white);
 }
+
+
 
 .Header {
     height: calc(2*var(--lh));
@@ -62,14 +69,11 @@ block starts with a capital letter */
     margin-bottom: calc(1.5*var(--lh));
     background-color: var(--white);
     border-bottom: var(--gray-20) solid 1px;
-
 }
 
 .Header-title {
     padding-left: 26px; /* default line height */
     padding-right: 26px; /* default line height */
-    border-right: var(--gray-20) solid 1px;
-    line-height: calc(2*var(--lh));
     color: var(--text-secondary);
     font-weight: 400;
     white-space: nowrap;
@@ -79,13 +83,22 @@ block starts with a capital letter */
     color: var(--text-tertiary);
 }   
 
+.Header-separator {
+    height: 100%;
+    border-right: var(--gray-20) solid 1px;
+}
+
 .Header-menu {
     width: 100%;
     display: flex;
+    align-items: center;
+}
+
+.Header-menuItem {
+    margin-left: 26px; /* default line height */
 }
 
 .Header-menuItemAnchor {
-    margin-left: 26px; /* default line height */
     color: var(--text-secondary);
     cursor: pointer;
 }
@@ -94,22 +107,79 @@ block starts with a capital letter */
     color: var(--text-tertiary);
 }
 
-
 .Header-languageSelectionButton {
+    height: calc(2*var(--lh));
     padding-left: 26px; /* default line height */
     padding-right: 26px; /* default line height */
-    border-left: var(--gray-20) solid 1px;
-    line-height: calc(2*var(--lh));
     color: var(--text-secondary);
     cursor: pointer;
 }
 
-.Intro-paragraph {
-    line-height: var(--lh);
-    margin-bottom: 13px;
+.Header-languageSelectionButton:hover {
+    background-color: var(--gray-5);
+}
+
+
+
+.Welcome {
+    max-width: 40rem;
+    margin-top: calc(3*var(--lh));
+    margin-left: auto;
+    margin-right: auto;
     padding-left: 13px; /* half default line height */
     padding-right: 13px; /* half default line height */
 }
+
+.Welcome-paragraph {
+    line-height: var(--lh);
+    margin-bottom: var(--lh);
+}
+
+
+
+.Person {
+    max-width: 40rem;
+    margin-top: calc(3*var(--lh));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
+}
+
+.Person-title {
+    margin-bottom: var(--lh);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.Person-paragraph {
+    line-height: var(--lh);
+    margin-bottom: var(--lh);
+}
+
+
+
+.Contact {
+    max-width: 40rem;
+    margin-top: calc(3*var(--lh));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
+}
+
+.Contact-title {
+    margin-bottom: var(--lh);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.Contact-paragraph {
+    line-height: var(--lh);
+    margin-bottom: var(--lh);
+}
+
+
 
 .Article {
     max-width: 40rem;
@@ -152,6 +222,8 @@ block starts with a capital letter */
 .Article-end{
     height: calc(4*var(--lh));
 }
+
+
 
 /* @media (prefers-color-scheme: dark) {
     .Body {

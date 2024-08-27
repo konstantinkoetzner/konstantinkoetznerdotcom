@@ -8,11 +8,17 @@
 <body class="Body">
     {{template "Header" .}}
 
-    {{if eq . "en"}}
-    Hello, welcome to this website.
-    {{end}}
-    {{if eq . "de"}}
-    Hallo, willkommen auf dieser Website.
-    {{end}}
+    <section class="Welcome">
+        {{if eq . "en"}}
+        <p class="Welcome-paragraph">Hello,</p>
+        <p class="Welcome-paragraph">Welcome to my website.</p>
+        <p class="Welcome-paragraph">Konstantin Koetzner</p>
+        {{end}}
+        {{if eq . "de"}}
+        <p class="Welcome-paragraph">Hallo,</p>
+        <p class="Welcome-paragraph">willkommen auf meiner Website.</p>
+        <p class="Welcome-paragraph">Konstantin Koetzner</p>
+        {{end}}
+    </section>
 </body>
 </html>

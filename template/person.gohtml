@@ -8,11 +8,14 @@
 <body class="Body">
     {{template "Header" .}}
     
-    {{if eq . "en"}}
-    I live in Munich.
-    {{end}}
-    {{if eq . "de"}}
-    Ich wohne in München.
-    {{end}}
+    <section class="Person">
+        <h2 class="Person-title">Konstantin Koetzner</h2>
+        {{if eq . "en"}}
+        <p class="Person-paragraph">I live in munich.</p>
+        {{end}}
+        {{if eq . "de"}}
+        <p class="Person-paragraph">Ich wohne in München.</p>
+        {{end}}
+    </section>
 </body>
 </body>
