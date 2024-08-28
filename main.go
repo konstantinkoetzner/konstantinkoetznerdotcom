@@ -20,6 +20,7 @@ func main() {
 	mux.HandleFunc("/veroeffentlichung", veroeffentlichungHandler)
 	mux.HandleFunc("/kontakt", kontaktHandler)
 	http.ListenAndServe(":8080", mux)
+	fmt.Println("Server is running on port 8080")
 }
 
 func indexHandler(w http.ResponseWriter, r *http.Request) {
