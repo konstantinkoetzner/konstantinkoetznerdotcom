@@ -132,10 +132,6 @@ block starts with a capital letter */
     cursor: pointer;
 }
 
-.Header-menuItemAnchor:hover {
-    color: var(--text-tertiary);
-}
-
 .Header-languageSelectionForm {
     border-left: var(--gray-20) solid 1px;
 }
