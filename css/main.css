@@ -62,13 +62,40 @@ block starts with a capital letter */
 
 
 .Header {
-    height: calc(2*var(--lh));
+    position: relative;
+    height: calc(2 * var(--lh));
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: calc(1.5*var(--lh));
     background-color: var(--white);
     border-bottom: var(--gray-20) solid 1px;
+}
+
+.Header-menuButton {
+    flex-shrink: 0;
+    width: calc(2 * var(--lh));
+    height: calc(2 * var(--lh));
+    border-right: var(--gray-20) solid 1px;
+    color: var(--text-secondary);
+    line-height: calc(2 * var(--lh));
+    text-align: center;
+}
+
+.Header-menuButtonCheckbox:hover ~ .Header-menuButton {
+    background-color: var(--gray-5);
+}
+
+.Header-menuButtonCheckbox:checked ~ .Header-menuButton {
+    background-color: var(--gray-5);
+}
+
+.Header-menuButtonCheckbox {
+    position: absolute;
+    z-index: 1;
+    width: calc(2 * var(--lh));
+    height: calc(2 * var(--lh));
+    opacity: 0;
+    cursor: pointer;
 }
 
 .Header-title {
@@ -79,23 +106,25 @@ block starts with a capital letter */
     white-space: nowrap;
 }
 
-.Header-titleAnchor:hover {
-    color: var(--text-tertiary);
-}   
-
-.Header-separator {
-    height: 100%;
-    border-right: var(--gray-20) solid 1px;
+.Header-menu {
+    display: none;
+    width: 100%;
+    background-color: var(--white);
 }
 
-.Header-menu {
-    width: 100%;
+.Header-menuButtonCheckbox:checked ~ .Header-menu {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    position: fixed;
+    top: calc(2 * var(--lh) + 1px);
+    bottom: 0;
 }
 
 .Header-menuItem {
-    margin-left: 26px; /* default line height */
+    padding-left: 13px; /* half default line height */
+    line-height: calc(2 * var(--lh));
+    flex-shrink: 0;
+    border-bottom: var(--gray-20) solid 1px;
 }
 
 .Header-menuItemAnchor {
@@ -107,8 +136,12 @@ block starts with a capital letter */
     color: var(--text-tertiary);
 }
 
+.Header-languageSelectionForm {
+    border-left: var(--gray-20) solid 1px;
+}
+
 .Header-languageSelectionButton {
-    height: calc(2*var(--lh));
+    height: calc(2 * var(--lh));;
     padding-left: 26px; /* default line height */
     padding-right: 26px; /* default line height */
     color: var(--text-secondary);
@@ -119,11 +152,39 @@ block starts with a capital letter */
     background-color: var(--gray-5);
 }
 
+@media screen and (min-width: 726px) { /* 726px = (700px: article max width) + (26px: article margins) */
+    .Header-menuButton {
+        display: none;
+    }
+
+    .Header-menuButtonCheckbox {
+        display: none;
+    }
+    
+    .Header-menu {
+        display: flex;
+        align-items: center;
+        height: calc(2 * var(--lh));
+        border-left: var(--gray-20) solid 1px;
+    }
+
+    .Header-menuButtonCheckbox:checked ~ .Header-menu {
+        flex-direction: row;
+        position: relative;
+        top: 0;
+    }
+
+    .Header-menuItem {
+        margin-left: 26px; /* default line height */
+        border-bottom: none;
+    }
+}
+
 
 
 .Welcome {
-    max-width: 40rem;
-    margin-top: calc(3*var(--lh));
+    max-width: 700px;
+    margin-top: calc(1 * var(--lh));
     margin-left: auto;
     margin-right: auto;
     padding-left: 13px; /* half default line height */
@@ -135,55 +196,17 @@ block starts with a capital letter */
     margin-bottom: var(--lh);
 }
 
-
-
-.Person {
-    max-width: 40rem;
-    margin-top: calc(3*var(--lh));
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 13px; /* half default line height */
-    padding-right: 13px; /* half default line height */
-}
-
-.Person-title {
-    margin-bottom: var(--lh);
-    font-size: 1.125rem;
-    font-weight: 600;
-}
-
-.Person-paragraph {
-    line-height: var(--lh);
-    margin-bottom: var(--lh);
-}
-
-
-
-.Contact {
-    max-width: 40rem;
-    margin-top: calc(3*var(--lh));
-    margin-left: auto;
-    margin-right: auto;
-    padding-left: 13px; /* half default line height */
-    padding-right: 13px; /* half default line height */
-}
-
-.Contact-title {
-    margin-bottom: var(--lh);
-    font-size: 1.125rem;
-    font-weight: 600;
-}
-
-.Contact-paragraph {
-    line-height: var(--lh);
-    margin-bottom: var(--lh);
+@media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article margins) + (65px: 2 * default line height) */
+    .Welcome {
+        margin-top: calc(2 * var(--lh));
+    }
 }
 
 
 
 .Article {
-    max-width: 40rem;
-    margin-top: calc(3*var(--lh));
+    max-width: 700px;
+    margin-top: calc(1 * var(--lh));
     margin-left: auto;
     margin-right: auto;
     padding-left: 13px; /* half default line height */
@@ -197,7 +220,7 @@ block starts with a capital letter */
 }
 
 .Article-author {
-    margin-bottom: calc(2*var(--lh));
+    margin-bottom: calc(2 * var(--lh));
 }
 
 .Article-paragraph {
@@ -216,11 +239,69 @@ block starts with a capital letter */
 .Article-image {
     max-width: 100%;
     margin-top: var(--lh);
-    margin-bottom: calc(2*var(--lh));
+    margin-bottom: calc(2 * var(--lh));
 }
 
-.Article-end{
-    height: calc(4*var(--lh));
+@media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article margins) + (65px: 2 * default line height) */
+    .Article {
+        margin-top: calc(2 * var(--lh));
+    }
+}
+
+
+
+.Person {
+    max-width: 700px;
+    margin-top: calc(1 * var(--lh));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
+}
+
+.Person-title {
+    margin-bottom: var(--lh);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.Person-paragraph {
+    line-height: var(--lh);
+    margin-bottom: var(--lh);
+}
+
+@media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article margins) + (65px: 2 * default line height) */
+    .Person {
+        margin-top: calc(2 * var(--lh));
+    }
+}
+
+
+
+.Contact {
+    max-width: 700px;
+    margin-top: calc(1 * var(--lh));
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
+}
+
+.Contact-title {
+    margin-bottom: var(--lh);
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+.Contact-paragraph {
+    line-height: var(--lh);
+    margin-bottom: var(--lh);
+}
+
+@media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article margins) + (65px: 2 * default line height) */
+    .Contact {
+        margin-top: calc(2 * var(--lh));
+    }
 }
 
 
@@ -233,7 +314,6 @@ block starts with a capital letter */
 
     .Article-anchor {
         color: rgb(122, 183, 255);
-        text-decoration: none;
     }
 
     .Article-anchor:hover {
