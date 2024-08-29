@@ -207,6 +207,7 @@ block starts with a capital letter */
 .Article {
     max-width: 700px;
     margin-top: calc(1 * var(--lh));
+    margin-bottom: calc(5 * var(--lh));
     margin-left: auto;
     margin-right: auto;
     padding-left: 13px; /* half default line height */
