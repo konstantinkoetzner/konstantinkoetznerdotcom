@@ -52,11 +52,24 @@ block starts with a capital letter */
 
 
 .Body {
+    position: relative; /* for the Ruler */
     line-height: var(--lh);
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     color: var(--text-primary);
     background-color: var(--white);
+}
+
+
+
+.VerticalRuler {
+    display: none;
+    position: fixed;
+    height: 1px;
+    width: 100%;
+    background-color: red;
+    margin-top: 32px;
+    z-index: 1000;
 }
 
 
@@ -118,11 +131,11 @@ block starts with a capital letter */
 }
 
 .Header-menu {
+    position: fixed;
     display: flex;
     flex-direction: column;
     top: calc(2 * var(--lh) + 1px);
     bottom: 0;
-    position: fixed;
     width: 100%;
     background-color: var(--white);
     opacity: 0;
@@ -185,7 +198,10 @@ block starts with a capital letter */
     }
     
     .Header-menu {
-        display: flex;
+        position: unset;
+        flex-direction: row;
+        top: unset;
+        bottom: unset;
         align-items: center;
         height: calc(2 * var(--lh));
         border-left: var(--gray-20) solid 1px;
@@ -203,11 +219,18 @@ block starts with a capital letter */
 
     .Header-menuItem {
         margin-left: 26px; /* default line height */
-        border-bottom: none;
+        border-bottom: unset;
     }
 
     .Header-menuItemAnchor {
-        line-height: var(--lh);
+        display: unset;
+        line-height: unset;
+    }
+
+    .Header-languageSelectionButton {
+        width: unset;
+        padding-left: 26px; /* default line height */
+        padding-right: 26px; /* default line height */
     }
 }
 
