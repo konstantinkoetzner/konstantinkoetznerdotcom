@@ -72,6 +72,10 @@ block starts with a capital letter */
 }
 
 .Header-menuButton {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     flex-shrink: 0;
     width: calc(2 * var(--lh));
     height: calc(2 * var(--lh));
@@ -81,10 +85,17 @@ block starts with a capital letter */
     text-align: center;
 }
 
-.Header-menuButtonCheckbox:hover ~ .Header-menuButton {
-    background-color: var(--gray-5);
+.Header-menuButtonLine {
+    width: 26px;
+    margin-bottom: 5px;
+    height: 2px;
+    background-color: var(--gray-30);
 }
 
+.Header-menuButtonLine--last {
+    margin-bottom: 0;
+}
+    
 .Header-menuButtonCheckbox:checked ~ .Header-menuButton {
     background-color: var(--gray-5);
 }
@@ -122,14 +133,19 @@ block starts with a capital letter */
 
 .Header-menuItem {
     padding-left: 13px; /* half default line height */
-    line-height: calc(2 * var(--lh));
     flex-shrink: 0;
     border-bottom: var(--gray-20) solid 1px;
 }
 
 .Header-menuItemAnchor {
+    display: block;
+    line-height: calc(2 * var(--lh));
     color: var(--text-secondary);
     cursor: pointer;
+}
+
+.Header-menuItemAnchor:hover {
+    color: var(--text-tertiary);
 }
 
 .Header-languageSelectionForm {
@@ -140,7 +156,7 @@ block starts with a capital letter */
     height: calc(2 * var(--lh));;
     padding-left: 26px; /* default line height */
     padding-right: 26px; /* default line height */
-    color: var(--text-secondary);
+    color: var(--text-tertiary);
     cursor: pointer;
 }
 
@@ -174,6 +190,10 @@ block starts with a capital letter */
         margin-left: 26px; /* default line height */
         border-bottom: none;
     }
+
+    .Header-menuItemAnchor {
+        line-height: var(--lh);
+    }
 }
 
 
@@ -192,7 +212,7 @@ block starts with a capital letter */
     margin-bottom: var(--lh);
 }
 
-@media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article margins) + (65px: 2 * default line height) */
+@media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article padding left and right) + (65px: 2 * default line height) */
     .Welcome {
         margin-top: calc(2 * var(--lh));
     }

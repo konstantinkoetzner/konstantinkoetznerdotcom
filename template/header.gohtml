@@ -1,7 +1,11 @@
 {{define "Header"}}
 <header class="Header">
     <input class="Header-menuButtonCheckbox" type="checkbox">
-    <div class="Header-menuButton">{{if eq . "en"}}Menu{{end}}{{if eq . "de"}}Menü{{end}}</div>
+    <div class="Header-menuButton">
+        <div class="Header-menuButtonLine"></div>
+        <div class="Header-menuButtonLine"></div>
+        <div class="Header-menuButtonLine Header-menuButtonLine--last"></div>
+    </div>
     <h1 class="Header-title"><a class="Header-titleAnchor" href="/">Konstantin Koetzner</a></h1>
     {{if eq . "en"}}
     <nav class="Header-menu">
