@@ -128,9 +128,9 @@ block starts with a capital letter */
     opacity: 0;
     visibility: hidden;
     transition-property: opacity, visibility;
-    transition-duration: 0.2s, 0s;
-    transition-delay: 0s, 0.2s;
-    transition-timing-function: ease-in-out, linear;
+    transition-duration: 0.3s, 0s;
+    transition-delay: 0s, 0.3s;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease;
 }
 
 .Header-menuButtonCheckbox:checked ~ .Header-menu {
@@ -140,7 +140,7 @@ block starts with a capital letter */
     transition-property: opacity, visibility;
     transition-duration: 0.3s, 0s;
     transition-delay: 0s, 0s;
-    transition-timing-function: ease-in-out, linear;
+    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease;
 }
 
 .Header-menuItem {
@@ -166,8 +166,7 @@ block starts with a capital letter */
 
 .Header-languageSelectionButton {
     height: calc(2 * var(--lh));;
-    padding-left: 26px; /* default line height */
-    padding-right: 26px; /* default line height */
+    width: calc(2 * var(--lh));
     color: var(--text-tertiary);
     cursor: pointer;
 }
