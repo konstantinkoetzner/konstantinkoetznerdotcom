@@ -118,17 +118,29 @@ block starts with a capital letter */
 }
 
 .Header-menu {
-    display: none;
+    display: flex;
+    flex-direction: column;
+    top: calc(2 * var(--lh) + 1px);
+    bottom: 0;
+    position: fixed;
     width: 100%;
     background-color: var(--white);
+    opacity: 0;
+    visibility: hidden;
+    transition-property: opacity, visibility;
+    transition-duration: 0.2s, 0s;
+    transition-delay: 0s, 0.2s;
+    transition-timing-function: ease-in-out, linear;
 }
 
 .Header-menuButtonCheckbox:checked ~ .Header-menu {
-    display: flex;
-    flex-direction: column;
     position: fixed;
-    top: calc(2 * var(--lh) + 1px);
-    bottom: 0;
+    opacity: 1;
+    visibility: visible;
+    transition-property: opacity, visibility;
+    transition-duration: 0.3s, 0s;
+    transition-delay: 0s, 0s;
+    transition-timing-function: ease-in-out, linear;
 }
 
 .Header-menuItem {
@@ -178,12 +190,16 @@ block starts with a capital letter */
         align-items: center;
         height: calc(2 * var(--lh));
         border-left: var(--gray-20) solid 1px;
+        opacity: 1;
+        visibility: visible;
+        transition: none;
     }
 
     .Header-menuButtonCheckbox:checked ~ .Header-menu {
         flex-direction: row;
         position: relative;
         top: 0;
+        transition: none;
     }
 
     .Header-menuItem {
