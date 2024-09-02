@@ -56,7 +56,6 @@ block starts with a capital letter */
     font-family: ui-sans-serif, -apple-system, system-ui, "Segoe UI", Roboto, Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     -webkit-font-smoothing: antialiased;
     color: var(--text-primary);
-    background-color: var(--white);
 }
 
 
@@ -103,12 +102,12 @@ block starts with a capital letter */
     text-align: center;
 }
 
-.Header-menuButtonCheckbox:hover ~ .Header-menuButton{
+.Header-menuButtonCheckbox:hover ~ .Header-menuButton {
     background-color: var(--gray-10);
 }
 
 @media (hover: none) {
-    .Header-menuButtonCheckbox:hover ~ .Header-menuButton{
+    .Header-menuButtonCheckbox:hover ~ .Header-menuButton {
         background-color: unset;
     }
 }
@@ -118,7 +117,7 @@ block starts with a capital letter */
 }
 
 .Header-menuButtonLine {
-    width: 26px;
+    width: 16px;
     margin-bottom: 5px;
     height: 2px;
     background-color: var(--gray-60);
@@ -256,7 +255,7 @@ block starts with a capital letter */
 
 .Article-title {
     margin-bottom: var(--lh);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
