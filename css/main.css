@@ -11,25 +11,25 @@ block starts with a capital letter */
 :root {
     --lh: 1.625rem;
 
-    --white: #fff;
-    --gray-5: #f9f9f9;
-    --gray-10: #ececec;
-    --gray-20: #e3e3e3;
-    --gray-30: #cdcdcd;
-    --gray-40: #b4b4b4;
-    --gray-50: #9b9b9b;
-    --gray-60: #676767;
-    --gray-70: #424242;
-    --gray-75: #2f2f2f;
-    --gray-80: #212121;
-    --gray-90: #171717;
-    --gray-95: #0d0d0d;
-    --black: #000;
+    --white: hsl(0, 0%, 100%);
+    --gray-5: hsl(0, 0%, 97%);
+    --gray-10: hsl(0, 0%, 92%);
+    --gray-20: hsl(0, 0%, 89%);
+    --gray-30: hsl(0, 0%, 80%);
+    --gray-40: hsl(0, 0%, 70%);
+    --gray-50: hsl(0, 0%, 60%);
+    --gray-60: hsl(0, 0%, 40%);
+    --gray-70: hsl(0, 0%, 25%);
+    --gray-75: hsl(0, 0%, 18%);
+    --gray-80: hsl(0, 0%, 12%);
+    --gray-90: hsl(0, 0%, 9%);
+    --gray-95: hsl(0, 0%, 5%);
+    --black: hsl(0, 0%, 0%);
 
-    --text-primary: #0d0d0d;
-    --text-secondary: #7d7d7d;
-    --text-tertiary: #b4b4b4;
-    --text-quaternary: #cdcdcd;
+    --text-primary: var(--gray-95);
+    --text-secondary: hsl(0, 0%, 49%);
+    --text-tertiary: var(--gray-40);
+    --text-quaternary: var(--gray-30);
 
     --link: #2964aa;
     --link-hover: #749ac8;
@@ -42,7 +42,6 @@ block starts with a capital letter */
     padding: 0;
     border: 0;
     font: inherit;
-    font-size: 1rem;
     color: inherit;
     background-color: transparent;
     text-decoration: none;
@@ -80,8 +79,16 @@ block starts with a capital letter */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--white);
-    border-bottom: var(--gray-20) solid 1px;
+    background-color: var(--gray-5);
+    border-bottom: var(--gray-30) solid 1px;
+}
+
+.Header-menuButtonCheckbox {
+    position: absolute;
+    width: calc(2 * var(--lh));
+    height: calc(2 * var(--lh));
+    opacity: 0;
+    cursor: pointer;
 }
 
 .Header-menuButton {
@@ -92,103 +99,82 @@ block starts with a capital letter */
     flex-shrink: 0;
     width: calc(2 * var(--lh));
     height: calc(2 * var(--lh));
-    border-right: var(--gray-20) solid 1px;
-    color: var(--text-secondary);
     line-height: calc(2 * var(--lh));
     text-align: center;
+}
+
+.Header-menuButtonCheckbox:hover ~ .Header-menuButton{
+    background-color: var(--gray-10);
+}
+
+@media (hover: none) {
+    .Header-menuButtonCheckbox:hover ~ .Header-menuButton{
+        background-color: unset;
+    }
+}
+
+.Header-menuButtonCheckbox:checked ~ .Header-menuButton {
+    background-color: var(--gray-10);
 }
 
 .Header-menuButtonLine {
     width: 26px;
     margin-bottom: 5px;
     height: 2px;
-    background-color: var(--gray-30);
+    background-color: var(--gray-60);
 }
 
 .Header-menuButtonLine--last {
     margin-bottom: 0;
 }
-    
-.Header-menuButtonCheckbox:checked ~ .Header-menuButton {
-    background-color: var(--gray-5);
-}
-
-.Header-menuButtonCheckbox {
-    position: absolute;
-    z-index: 1;
-    width: calc(2 * var(--lh));
-    height: calc(2 * var(--lh));
-    opacity: 0;
-    cursor: pointer;
-}
 
 .Header-title {
     padding-left: 26px; /* default line height */
     padding-right: 26px; /* default line height */
-    color: var(--text-secondary);
-    font-weight: 400;
+    font-size: 1.125rem;
+    font-weight: 600;
     white-space: nowrap;
 }
 
 .Header-menu {
     position: fixed;
-    display: flex;
+    display: none;
     flex-direction: column;
-    top: calc(2 * var(--lh) + 1px);
+    top: calc(2 * var(--lh) + 2px); /* 2px: border top and bottom of the bar*/
     bottom: 0;
     width: 100%;
     background-color: var(--white);
-    opacity: 0;
-    visibility: hidden;
-    transition-property: opacity, visibility;
-    transition-duration: 0.3s, 0s;
-    transition-delay: 0s, 0.3s;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease;
 }
 
 .Header-menuButtonCheckbox:checked ~ .Header-menu {
-    position: fixed;
-    opacity: 1;
-    visibility: visible;
-    transition-property: opacity, visibility;
-    transition-duration: 0.3s, 0s;
-    transition-delay: 0s, 0s;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1), ease;
+    display: unset;
 }
 
 .Header-menuItem {
-    padding-left: 13px; /* half default line height */
-    flex-shrink: 0;
-    border-bottom: var(--gray-20) solid 1px;
+    margin-left: 13px; /* half default line height */
+    margin-bottom: calc(0.5 * var(--lh));
 }
 
-.Header-menuItemAnchor {
-    display: block;
-    line-height: calc(2 * var(--lh));
-    color: var(--text-secondary);
-    cursor: pointer;
+.Header-menuItem--first {
+    margin-top: calc(0.5 * var(--lh));
 }
 
 .Header-menuItemAnchor:hover {
-    color: var(--text-tertiary);
-}
-
-.Header-languageSelectionForm {
-    border-left: var(--gray-20) solid 1px;
+    color: var(--text-secondary);
 }
 
 .Header-languageSelectionButton {
     height: calc(2 * var(--lh));;
     width: calc(2 * var(--lh));
-    color: var(--text-tertiary);
     cursor: pointer;
+    color: var(--text-secondary);
 }
 
 .Header-languageSelectionButton:hover {
-    background-color: var(--gray-5);
+    background-color: var(--gray-10);
 }
 
-@media screen and (min-width: 726px) { /* 726px = (700px: article max width) + (26px: article margins) */
+@media screen and (min-width: 9726px) { /* 726px = (700px: article max width) + (26px: article margins) */
     .Header-menuButton {
         display: none;
     }
