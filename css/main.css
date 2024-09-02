@@ -178,52 +178,6 @@ block starts with a capital letter */
     background-color: var(--gray-10);
 }
 
-@media screen and (min-width: 9726px) { /* 726px = (700px: article max width) + (26px: article margins) */
-    .Header-menuButton {
-        display: none;
-    }
-
-    .Header-menuButtonCheckbox {
-        display: none;
-    }
-    
-    .Header-menu {
-        position: unset;
-        flex-direction: row;
-        top: unset;
-        bottom: unset;
-        align-items: center;
-        height: calc(2 * var(--lh));
-        border-left: var(--gray-20) solid 1px;
-        opacity: 1;
-        visibility: visible;
-        transition: none;
-    }
-
-    .Header-menuButtonCheckbox:checked ~ .Header-menu {
-        flex-direction: row;
-        position: relative;
-        top: 0;
-        transition: none;
-    }
-
-    .Header-menuItem {
-        margin-left: 26px; /* default line height */
-        border-bottom: unset;
-    }
-
-    .Header-menuItemAnchor {
-        display: unset;
-        line-height: unset;
-    }
-
-    .Header-languageSelectionButton {
-        width: unset;
-        padding-left: 26px; /* default line height */
-        padding-right: 26px; /* default line height */
-    }
-}
-
 
 
 .Welcome {
