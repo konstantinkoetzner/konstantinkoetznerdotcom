@@ -151,6 +151,7 @@ block starts with a capital letter */
 
 .Header-menuItem {
     margin-left: 13px; /* half default line height */
+    margin-right: 13px; /* half default line height */
     margin-bottom: calc(0.5 * var(--lh));
 }
 
