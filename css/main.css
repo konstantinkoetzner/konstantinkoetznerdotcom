@@ -301,7 +301,7 @@ block starts with a capital letter */
 
 .Person-title {
     margin-bottom: var(--lh);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -329,7 +329,7 @@ block starts with a capital letter */
 
 .Contact-title {
     margin-bottom: var(--lh);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
