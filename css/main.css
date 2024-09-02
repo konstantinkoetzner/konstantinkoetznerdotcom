@@ -158,6 +158,10 @@ block starts with a capital letter */
     margin-top: calc(0.5 * var(--lh));
 }
 
+.Header-menuItemAnchor {
+    display: block;
+}
+
 .Header-menuItemAnchor:hover {
     color: var(--text-secondary);
 }
