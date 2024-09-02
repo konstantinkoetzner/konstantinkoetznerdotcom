@@ -249,23 +249,28 @@ block starts with a capital letter */
     margin-bottom: calc(5 * var(--lh));
     margin-left: auto;
     margin-right: auto;
-    padding-left: 13px; /* half default line height */
-    padding-right: 13px; /* half default line height */
+
 }
 
 .Article-title {
     margin-bottom: var(--lh);
     font-size: 1.5rem;
     font-weight: 600;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
 }
 
 .Article-author {
     margin-bottom: calc(2 * var(--lh));
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
 }
 
 .Article-paragraph {
     line-height: var(--lh);
     margin-bottom: var(--lh);
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
 }
 
 .Article-anchor {
@@ -277,9 +282,16 @@ block starts with a capital letter */
 }
 
 .Article-image {
-    max-width: 100%;
+    width: 100%;
     margin-top: var(--lh);
     margin-bottom: calc(2 * var(--lh));
+}
+
+@media screen and (min-width: 700px) {
+    .Article-image {
+        width: calc(100% - 26px); /* 26px: 2 * article padding */
+        margin-left: 13px; /* article padding */
+    }
 }
 
 @media screen and (min-width: 791px) { /* 791px = (700px: article max width) + (26px: article margins) + (65px: 2 * default line height) */
