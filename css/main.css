@@ -130,9 +130,11 @@ block starts with a capital letter */
 .Header-title {
     padding-left: 26px; /* default line height */
     padding-right: 26px; /* default line height */
-    font-size: 1.266rem;
-    font-weight: 600;
+    /* font-size: 1.266rem; */
+    /* font-size: 1.125rem; */
+    font-weight: 400;
     white-space: nowrap;
+    color: var(--text-secondary);
 }
 
 .Header-menu {
@@ -213,7 +215,15 @@ block starts with a capital letter */
 
 .Article-title {
     margin-bottom: var(--lh);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-left: 13px; /* half default line height */
+    padding-right: 13px; /* half default line height */
+}
+
+.Article-heading {
+    margin-bottom:  var(--lh);
+    font-size: 1.25rem;
     font-weight: 600;
     padding-left: 13px; /* half default line height */
     padding-right: 13px; /* half default line height */
@@ -272,7 +282,7 @@ block starts with a capital letter */
 
 .Person-title {
     margin-bottom: var(--lh);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
@@ -300,7 +310,7 @@ block starts with a capital letter */
 
 .Contact-title {
     margin-bottom: var(--lh);
-    font-size: 1.125rem;
+    font-size: 1.5rem;
     font-weight: 600;
 }
 
