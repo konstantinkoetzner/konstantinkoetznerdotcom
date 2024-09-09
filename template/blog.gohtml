@@ -8,6 +8,7 @@
 <body class="Body">
     {{template "Header" .}}
 
+    {{if eq . "en"}}
     <article class="Article">
         <h2 class="Article-title">A quote to have in front of you when you are a software developer</h2>
         <p class="Article-author">by Konstantin Koetzner</p>
@@ -22,5 +23,22 @@
         <p class="Article-paragraph">"I want you to really kind of take in what Alan is saying there."</p>
         <div class="Article-end"></div>
     </article>
+    {{end}}
+    {{if eq . "de"}}
+    <article class="Article">
+        <h2 class="Article-title">Ein Zitat, um es vor dir zu haben, wenn du Softwareentwickler bist</h2>
+        <p class="Article-author">von Konstantin Koetzner</p>
+        <p class="Article-paragraph">"Falls es den meisten Computer Leuten an Verständnis und Wissen mangelt, dann wird, was sie auswählen werden, auch mangelhaft sein." - Alan Kay</p>
+        <p class="Article-paragraph"><a class="Article-anchor" href="https://www.ardanlabs.com/instructors/bill-kennedy">Bill Kennedy</a> sagt in dem Kurs <a class="Article-anchor" href="https://www.oreilly.com/library/view/ultimate-go-advanced/9780135339503">Ultimate Go</a>:</p>
+        <p class="Article-paragraph">"Ich will, dass jeder Entwickler dieses Zitat Tag für Tag vor sich hat."</p>
+        <p class="Article-paragraph">Er führt fort:</p>
+        <p class="Article-paragraph">"Weil du Ingenieurentscheidungen triffst und es ist leicht, auf die Entscheidungen zurückzufallen, mit denen du vertraut bist. Aber dann verlierst du den Fortschritt aus den Augen, den wir haben. Vielleicht gibt es bessere Techniken und vielleicht gibt es bessere Technologien. Vielleicht gibt es etwas Besseres da draußen. Wir nehmen uns nicht die Zeit, es zu betrachten. Das ist, was Alan Kay sagt."</p>
+        <p class="Article-paragraph">"Es gibt wirklich, vielleicht, bessere Möglichkeiten, diesen Code in Go zu schreiben – Ideen rund um Lesbarkeit und Einfachheit."</p>
+        <p class="Article-paragraph">Zum Beispiel: Schreibe das Zitat auf ein Blatt Papier und laminiere es. Habe es bei dir, wo immer du Softwareentwickler bist.</p>
+        <img class="Article-image" src="img/bill-kennedy-alan-kay-quote-for-developer.jpg" alt="Foto des Kurses auf Video auf einem Tablet und ein laminiertes Papier mit dem Zitat darauf.">
+        <p class="Article-paragraph">"Ich möchte, dass du wirklich verinnerlichst, was Alan dort sagt."</p>
+        <div class="Article-end"></div>
+    </article>
+    {{end}}
 </body>
 </body>

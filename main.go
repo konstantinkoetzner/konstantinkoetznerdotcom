@@ -17,7 +17,7 @@ func main() {
 	mux.HandleFunc("/person", personHandler)
 	mux.HandleFunc("/publication", publicationHandler)
 	mux.HandleFunc("/contact", contactHandler)
-	mux.HandleFunc("/veroeffentlichung", veroeffentlichungHandler)
+	mux.HandleFunc("/blog", blogHandler)
 	mux.HandleFunc("/kontakt", kontaktHandler)
 	http.ListenAndServe(":8080", mux)
 	fmt.Println("Server is running on port 8080")
@@ -63,10 +63,10 @@ func contactHandler(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func veroeffentlichungHandler(w http.ResponseWriter, r *http.Request) {
+func blogHandler(w http.ResponseWriter, r *http.Request) {
 	t := template.Must(template.ParseGlob("template/*"))
 	lang := determineLanguage(r)
-	err := t.ExecuteTemplate(w, "veroeffentlichung.gohtml", lang)
+	err := t.ExecuteTemplate(w, "blog.gohtml", lang)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
